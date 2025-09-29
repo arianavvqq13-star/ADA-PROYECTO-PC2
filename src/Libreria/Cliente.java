@@ -1,6 +1,5 @@
 
 package Libreria;
-//hola
 public class Cliente {
 
  // Atributos privados del cliente
@@ -46,3 +45,4 @@ public class Cliente {
         return celular.matches("\\d{9}");
     }
 }    
+
