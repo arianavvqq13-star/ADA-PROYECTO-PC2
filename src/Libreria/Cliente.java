@@ -1,6 +1,6 @@
 
 package Libreria;
-
+//hola
 public class Cliente {
 
  // Atributos privados del cliente

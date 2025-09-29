@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class TablaHash {
     private LinkedList<Articulo>[] tabla;
     private int tamaño;
-
+    //tamaño tabla hash
     public TablaHash(int tamaño) {
         this.tamaño = tamaño;
         tabla = new LinkedList[tamaño];
