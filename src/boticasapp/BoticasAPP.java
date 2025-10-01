@@ -105,18 +105,22 @@ static void menuArticulos() {
         System.out.print("Opcion: ");
         op = sc.nextInt(); sc.nextLine();
 
-        switch (op) {
+      switch (op) {//INSERTAR O REGISTRAR ARTICULO      
+       case 1:
+           System.out.print("Código: ");
+           String codigo = sc.nextLine();
+           System.out.print("Nombre: ");
+           String nombre = sc.nextLine();
+           System.out.print("Precio: ");
+           double precio = sc.nextDouble();
+           System.out.print("Stock: ");
+           int stock = sc.nextInt();
+           sc.nextLine();
 
-            case 1://Registro de nuevo articulo
-                System.out.print("Codigo: "); String cod = sc.nextLine();
-                System.out.print("Nombre: "); String nom = sc.nextLine();
-                System.out.print("Precio: "); double pre = sc.nextDouble(); sc.nextLine();
-                System.out.print("Marca: "); String mar = sc.nextLine();
-                System.out.print("Presentacion: "); String prese = sc.nextLine();
-                System.out.print("Stock: "); int stock = sc.nextInt(); sc.nextLine();
-                System.out.print("Categoria: "); String cat = sc.nextLine();
-                break;
-                
+           Articulo nuevo = new Articulo(codigo, nombre, precio, stock);
+           tabla.insertar(nuevo);
+           System.out.println("Artículo insertado.");
+           break;
 
             case 2://ELIMINAR ARTICULO POR CODIGO
                 System.out.print("Codigo del artículo a eliminar: ");
@@ -275,3 +279,4 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
     System.out.println("===============================================================");
     }
 }       //aprender el tiempo , espacio medio,averiguar los tiempos del tiempo y del espacio , porque no elegismos los otros , mexcla equilibrada , divide y avanza
+
