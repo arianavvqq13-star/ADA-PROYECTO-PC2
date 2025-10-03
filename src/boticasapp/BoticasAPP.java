@@ -99,8 +99,8 @@ static void menuArticulos() {
     do {
         System.out.println("\n--- MENÚ ARTÍCULOS ---");
         System.out.println("1. Registrar articulo");
-        System.out.println("2. Eliminar articulo");
-        System.out.println("3. Mostrar articulos");
+        System.out.println("2. Buscar articulo  ");
+        System.out.println("3. Eliminar articulo");
         System.out.println("0. Volver");
         System.out.print("Opcion: ");
         op = sc.nextInt(); sc.nextLine();
@@ -279,6 +279,7 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
     System.out.println("===============================================================");
     }
 }       //aprender el tiempo , espacio medio,averiguar los tiempos del tiempo y del espacio , porque no elegismos los otros , mexcla equilibrada , divide y avanza
+
 
 
 
