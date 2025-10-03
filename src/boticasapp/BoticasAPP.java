@@ -133,14 +133,15 @@ static void menuArticulos() {
                     }
                     break;
 
-            case 3://MOSTRAR TODOS LOS ARTICULOS 
-                for (Articulo a : articulos) {
-                    System.out.println(a);
-                }
-                break;
-                default:
-                System.out.println("Opcion invalida.");
-        }
+            case 3:
+                    System.out.print("Código a eliminar: ");
+                    String codEliminar = sc.nextLine();
+                    if (tabla.eliminar(codEliminar)) {
+                        System.out.println("Artículo eliminado.");
+                    } else {
+                        System.out.println("No se encontró el artículo.");
+                    }
+                    break;
     } while (op != 0);
 }
 static Articulo buscarArticuloPorCodigo(String codigo) {
@@ -278,5 +279,6 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
     System.out.println("===============================================================");
     }
 }       //aprender el tiempo , espacio medio,averiguar los tiempos del tiempo y del espacio , porque no elegismos los otros , mexcla equilibrada , divide y avanza
+
 
 
