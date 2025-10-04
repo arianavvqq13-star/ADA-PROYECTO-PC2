@@ -101,6 +101,7 @@ static void menuArticulos() {
         System.out.println("1. Registrar articulo");
         System.out.println("2. Buscar articulo  ");
         System.out.println("3. Eliminar articulo");
+        System.out.println("4. Mostrar articulo");
         System.out.println("0. Volver");
         System.out.print("Opcion: ");
         op = sc.nextInt(); sc.nextLine();
@@ -123,27 +124,34 @@ static void menuArticulos() {
            break;
 
             case 2:
-                    System.out.print("Código a buscar: ");
-                    String codBuscar = sc.nextLine();
-                    Articulo encontrado = tabla.buscar(codBuscar);
-                    if (encontrado != null) {
-                        System.out.println("Encontrado: " + encontrado);
-                    } else {
-                        System.out.println(" No existe el artículo.");
-                    }
+              System.out.print("Código a buscar: ");
+              String codBuscar = sc.nextLine();
+              Articulo encontrado = tabla.buscar(codBuscar);
+              if (encontrado != null) {
+                  System.out.println("Encontrado: " + encontrado);
+              } else {
+                  System.out.println(" No existe el artículo.");
+              }
+              break;
+          case 3://ELIMINAR  ARTICULOS 
+              System.out.print("Código a eliminar: ");
+              String codEliminar = sc.nextLine();
+              if (tabla.eliminar(codEliminar)) {
+                  System.out.println("Artículo eliminado.");
+              } else {
+                  System.out.println(" No se encontró el artículo.");
+              }
+              break;
+            case 4:
+                tabla.mostrar();
                     break;
 
-            case 3:
-                    System.out.print("Código a eliminar: ");
-                    String codEliminar = sc.nextLine();
-                    if (tabla.eliminar(codEliminar)) {
-                        System.out.println("Artículo eliminado.");
-                    } else {
-                        System.out.println("No se encontró el artículo.");
-                    }
-                    break;
-    } while (op != 0);
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (op != 0);
 }
+   
 static Articulo buscarArticuloPorCodigo(String codigo) {
     for (Articulo a : articulos) {
         if (a.getCodigo().equalsIgnoreCase(codigo)) {
@@ -279,6 +287,7 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
     System.out.println("===============================================================");
     }
 }       //aprender el tiempo , espacio medio,averiguar los tiempos del tiempo y del espacio , porque no elegismos los otros , mexcla equilibrada , divide y avanza
+
 
 
 
