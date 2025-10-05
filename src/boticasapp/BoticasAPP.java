@@ -8,7 +8,7 @@ public class BoticasAPP {
     static ArrayList<Cliente> clientes = new ArrayList<>();
     static ArrayList<Articulo> articulos = new ArrayList<>();
     static ArrayList<Pedido> pedidos = new ArrayList<>();
-
+   static TablaHash tabla = new TablaHash(10);
     public static void main(String[] args) {
         int op;
         //MENU PRINCIPAL-bucle principal del menu
@@ -287,6 +287,7 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
     System.out.println("===============================================================");
     }
 }       //aprender el tiempo , espacio medio,averiguar los tiempos del tiempo y del espacio , porque no elegismos los otros , mexcla equilibrada , divide y avanza
+
 
 
 
