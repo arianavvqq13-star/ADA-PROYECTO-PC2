@@ -53,7 +53,43 @@ public class TablaHash {
         for (int i = 0; i < tamaño; i++) {
             if (!tabla[i].isEmpty()) {
                 System.out.println("Índice " + i + ": " + tabla[i]);
+        
+// ======== MÉTODOS PARA GUARDAR Y CARGAR DESDE ARCHIVO ========
+
+public void guardarEnArchivo(String nombreArchivo) {
+    try (java.io.PrintWriter pw = new java.io.PrintWriter(new java.io.FileWriter(nombreArchivo))) {
+        for (ListaEnlazada lista : tabla) { // tabla es tu arreglo de listas enlazadas
+            if (lista != null) {
+                for (Articulo a : lista.obtenerArticulos()) { // necesitas un método que devuelva los artículos
+                    pw.println(a.getCodigo() + ";" + a.getNombre() + ";" + a.getPrecio() + ";" + a.getStock());
+                }
             }
+        }
+        System.out.println("Datos guardados en " + nombreArchivo);
+    } catch (Exception e) {
+        System.out.println("Error al guardar en archivo: " + e.getMessage());
+    }
+}
+
+public void cargarDesdeArchivo(String nombreArchivo) {
+    try (java.util.Scanner sc = new java.util.Scanner(new java.io.File(nombreArchivo))) {
+        while (sc.hasNextLine()) {
+            String[] partes = sc.nextLine().split(";");
+            if (partes.length == 4) {
+                String codigo = partes[0];
+                String nombre = partes[1];
+                double precio = Double.parseDouble(partes[2]);
+                int stock = Integer.parseInt(partes[3]);
+                insertar(new Articulo(codigo, nombre, precio, stock));
+            }
+        }
+        System.out.println("Datos cargados desde " + nombreArchivo);
+    } catch (Exception e) {
+        System.out.println("No se pudo cargar el archivo: " + e.getMessage());
+    }
+}
+
+    }
         }
     }
 } 
