@@ -54,7 +54,7 @@ public class TablaHash {
             if (!tabla[i].isEmpty()) {
                 System.out.println("Índice " + i + ": " + tabla[i]);
         
-// ======== MÉTODOS PARA GUARDAR Y CARGAR DESDE ARCHIVO ========
+// MÉTODOS PARA GUARDAR Y CARGAR DESDE ARCHIVO //
 
 public void guardarEnArchivo(String nombreArchivo) {
     try (java.io.PrintWriter pw = new java.io.PrintWriter(new java.io.FileWriter(nombreArchivo))) {
@@ -91,5 +91,3 @@ public void cargarDesdeArchivo(String nombreArchivo) {
 
     }
         }
-    }
-} 
