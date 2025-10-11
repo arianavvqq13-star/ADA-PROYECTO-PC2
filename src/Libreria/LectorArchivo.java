@@ -21,13 +21,16 @@ public class LectorArchivo {
                 double precio = Double.parseDouble(datos[2]);
                 int stock = Integer.parseInt(datos[3]);
 
-                Articulo art = new Articulo(codigo, nombre, precio, stock);
-                lista.add(art);
+                lista.add(new Articulo(codigo, nombre, precio, stock));
                 }
-             }    
+            }
+            System.out.println(lista.size() + " productos cargados correctamente desde " + rutaArchivo);
+
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
+
         return lista;
-     }
-    }  
+    }
+}
+
