@@ -261,35 +261,6 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
         continue;
         //Se agrega el pedido y se actualiza el stock
         }
-        pedido.agregarDetalle(new DetallePedido(art,cant));
-        art.reducirStock(cant);
-            System.out.println("Articulo agregado al pedido.");
-        }
-        pedidos.add(pedido);
-        pedido.imprimirDetalle();//Mostrar resumen del pedido
-        }
-    static void imprimirPedido(){//MOSTRAR TODOS LOS PEDIDOS CON SUS TOTALESSystem.out.println("\n===============================================================");
-    System.out.println("|                  REPORTE DE PEDIDOS                        |");
-    System.out.println("===============================================================");
-    System.out.printf("| %-12s | %-15s | %-13s | %-12s | %-10s |\n",
-            "Cod.Cliente", "Cliente", "N° Pedido", "Fecha", "Total (S/.)");
-    System.out.println("---------------------------------------------------------------");
-
-    for (Pedido p : pedidos) {
-        System.out.printf("| %-12s | %-15s | %-13s | %-12s | %10.2f |\n",
-                p.getCliente().getDni(),
-                p.getCliente().getNombreCompleto(),
-                p.getNumeroPedido(),
-                p.getFecha(),
-                p.calcularTotal());
-    }
-
-    System.out.println("===============================================================");
-    }
-}       //aprender el tiempo , espacio medio,averiguar los tiempos del tiempo y del espacio , porque no elegismos los otros , mexcla equilibrada , divide y avanza
-
-
-
-
+     
 
 
