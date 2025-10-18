@@ -8,8 +8,22 @@ public class BoticasAPP {
     static ArrayList<Cliente> clientes = new ArrayList<>();
     static ArrayList<Articulo> articulos = new ArrayList<>();
     static ArrayList<Pedido> pedidos = new ArrayList<>();
-   static TablaHash tabla = new TablaHash(10);
-    public static void main(String[] args) {
+
+      // Crear tabla hash para la busqeuda interna 
+   static TablaHash tablahash= new TablaHash(20);
+      //Carga inicial de articulos internos
+    static {
+    // Precargar algunos artículos (productos internos)
+    Articulo a1 = new Articulo("A001", "Paracetamol", 2.5,100);
+    Articulo a2 = new Articulo("A002", "Amoxicilina", 4.0, 50);
+    Articulo a3 = new Articulo("A003", "Vitamina C", 3.5, 80);
+
+    articulos.addAll(Arrays.asList(a1, a2, a3));
+    tablaHash.insertar(a1);
+    tablaHash.insertar(a2);
+    tablaHash.insertar(a3);   
+   }  
+   public static void main(String[] args) {
         int op;
         //MENU PRINCIPAL-bucle principal del menu
         do {
@@ -262,5 +276,6 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
         //Se agrega el pedido y se actualiza el stock
         }
      
+
 
 
