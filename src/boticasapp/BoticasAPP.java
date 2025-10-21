@@ -12,18 +12,17 @@ public class BoticasAPP {
       // Crear tabla hash para la busqeuda interna 
    static TablaHash tablahash= new TablaHash(20);
       //Carga inicial de articulos internos
-    static {
+   public static void main(String[] args) {
     // Precargar algunos artículos (productos internos)
     Articulo a1 = new Articulo("A001", "Paracetamol", 2.5,100);
     Articulo a2 = new Articulo("A002", "Amoxicilina", 4.0, 50);
     Articulo a3 = new Articulo("A003", "Vitamina C", 3.5, 80);
 
     articulos.addAll(Arrays.asList(a1, a2, a3));
-    tablaHash.insertar(a1);
-    tablaHash.insertar(a2);
-    tablaHash.insertar(a3);   
-   }  
-   public static void main(String[] args) {
+    tablahash.insertar(a1);                                                                 blaHash.insertar(a1);
+    tablahash.insertar(a2);
+    tablahash.insertar(a3);
+    // _______________________________________________
         int op;
         //MENU PRINCIPAL-bucle principal del menu
         do {
@@ -112,67 +111,66 @@ static void menuArticulos() {
     int op;
     do {
         System.out.println("\n--- MENÚ ARTÍCULOS ---");
-        System.out.println("1. Registrar articulo");
-        System.out.println("2. Buscar articulo  ");
-        System.out.println("3. Eliminar articulo");
-        System.out.println("4. Mostrar articulo");
+        System.out.println("1. MOSTRAR articulo");
+        System.out.println("2. BUSCAR articulo");
+        System.out.println("3. AGREGAR NUEVO articulos");
+         System.out.println("4. ELIMINAR articulos");
         System.out.println("0. Volver");
         System.out.print("Opcion: ");
         op = sc.nextInt(); sc.nextLine();
+        sc.nextLine();
+        
+            switch (op) {
+                case 1:
+                    System.out.println("\n--- LISTA DE ARTÍCULOS (BÚSQUEDA INTERNA) ---");
+                    tablahash.mostrar();
+                    break;
 
-      switch (op) {//INSERTAR O REGISTRAR ARTICULO      
-       case 1:
-           System.out.print("Código: ");
-           String codigo = sc.nextLine();
-           System.out.print("Nombre: ");
-           String nombre = sc.nextLine();
-           System.out.print("Precio: ");
-           double precio = sc.nextDouble();
-           System.out.print("Stock: ");
-           int stock = sc.nextInt();
-           sc.nextLine();
+                case 2:
+                    System.out.print("\nIngrese el código del artículo a buscar: ");
+                    String codigoBuscar = sc.nextLine();
+                    Articulo encontrado = tablahash.buscar(codigoBuscar);
+                    if (encontrado != null) {
+                        System.out.println("Artículo encontrado:");
+                        System.out.println(encontrado);
+                    } else {
+                        System.out.println("No se encontró el artículo.");
+                    }
+                    break;
 
-           Articulo nuevo = new Articulo(codigo, nombre, precio, stock);
-           tabla.insertar(nuevo);
-           System.out.println("Artículo insertado.");
-           break;
+                case 3:
+                    System.out.println("\n--- AGREGAR NUEVO ARTÍCULO ---");
+                    System.out.print("Código: ");
+                    String codigo = sc.nextLine();
+                    System.out.print("Nombre: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Precio: ");
+                    double precio = sc.nextDouble();
+                    System.out.print("Stock: ");
+                    int stock = sc.nextInt();
+                    Articulo nuevo = new Articulo(codigo, nombre, precio,stock);
+                    tablahash.insertar(nuevo);
+                    System.out.println("✅ Artículo agregado correctamente.");
+                    break;
 
-            case 2:
-              System.out.print("Código a buscar: ");
-              String codBuscar = sc.nextLine();
-              Articulo encontrado = tabla.buscar(codBuscar);
-              if (encontrado != null) {
-                  System.out.println("Encontrado: " + encontrado);
-              } else {
-                  System.out.println(" No existe el artículo.");
-              }
-              break;
-          case 3://ELIMINAR  ARTICULOS 
-              System.out.print("Código a eliminar: ");
-              String codEliminar = sc.nextLine();
-              if (tabla.eliminar(codEliminar)) {
-                  System.out.println("Artículo eliminado.");
-              } else {
-                  System.out.println(" No se encontró el artículo.");
-              }
-              break;
-            case 4:
-                tabla.mostrar();
+                case 4:
+                    System.out.print("\nIngrese el código del artículo a eliminar: ");
+                    String codigoEliminar = sc.nextLine();
+                    tablahash.eliminar(codigoEliminar);
+                    System.out.println("🗑️ Artículo eliminado (si existía).");
+                    break;
+
+                case 5:
+                    System.out.println("👋 Saliendo del sistema...");
                     break;
 
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("⚠️ Opción inválida, intente nuevamente.");
+                    break;
             }
+
         } while (op != 0);
-}
-   
-static Articulo buscarArticuloPorCodigo(String codigo) {
-    for (Articulo a : articulos) {
-        if (a.getCodigo().equalsIgnoreCase(codigo)) {
-            return a;
-        }
     }
-    return null;
 }
 //-------Ordenamiento Interno-------
     @SuppressWarnings("empty-statement")
@@ -276,6 +274,7 @@ static Articulo buscarArticuloPorCodigo(String codigo) {
         //Se agrega el pedido y se actualiza el stock
         }
      
+
 
 
 
